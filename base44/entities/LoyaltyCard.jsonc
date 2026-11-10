@@ -1,0 +1,50 @@
+{
+  "name": "LoyaltyCard",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "M\u00fc\u015fteri"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Telefon"
+    },
+    "visits": {
+      "type": "number",
+      "title": "T\u0131ra\u015f say\u0131s\u0131",
+      "default": 0
+    },
+    "free_cuts": {
+      "type": "number",
+      "title": "Haz\u0131r bedava t\u0131ra\u015f",
+      "default": 0
+    },
+    "last_visit": {
+      "type": "string",
+      "title": "Son t\u0131ra\u015f",
+      "format": "date"
+    }
+  },
+  "required": [
+    "phone"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.ayna {
+  --ay-ink: #060708;
+  --ay-bone: #f1ece2;
+  --ay-brass: #c9a15a;
+  background:
+    radial-gradient(120% 70% at 50% -12%, #191d20 0%, rgba(6, 7, 8, 0) 62%),
+    linear-gradient(180deg, #080a0b 0%, #060708 100%);
+  color: var(--ay-bone);
+}
+
+.ayna-display {
+  font-family: 'Bebas Neue', var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: 0.01em;
+}
+
+.ayna-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.ayna-edge {
+  display: block;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(241, 236, 226, 0.08),
+    rgba(241, 236, 226, 0.55) 18%,
+    rgba(201, 161, 90, 0.5) 50%,
+    rgba(241, 236, 226, 0.55) 82%,
+    rgba(241, 236, 226, 0.08)
+  );
+}
+
+.ayna-reflect {
+  transform: scaleY(-1);
+  transform-origin: top center;
+  filter: blur(0.4px) saturate(0.8);
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.25) 45%, transparent 88%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.25) 45%, transparent 88%);
+}
+
+.ayna-ribbon-track {
+  display: flex;
+  width: max-content;
+  animation: ayna-run 38s linear infinite;
+}
+
+@keyframes ayna-run {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ayna-rule {
+  border-top: 1px solid rgba(241, 236, 226, 0.12);
+}
+
+.ayna-sheen {
+  background-image: linear-gradient(100deg, #17191b 0%, #262a2d 42%, #33383c 50%, #1b1e20 58%, #101214 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ayna-ribbon-track {
+    animation: none;
+  }
+}

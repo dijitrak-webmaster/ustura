@@ -1,0 +1,44 @@
+{
+  "name": "GalleryImage",
+  "type": "object",
+  "properties": {
+    "caption": {
+      "type": "string",
+      "title": "Ba\u015fl\u0131k"
+    },
+    "image": {
+      "type": "string",
+      "title": "G\u00f6rsel"
+    },
+    "active": {
+      "type": "boolean",
+      "title": "Yay\u0131nda",
+      "default": true
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "S\u0131ra"
+    }
+  },
+  "required": [
+    "image"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 4% 4%;
+    --foreground: 0 0% 89%;
+    --card: 240 4% 6%;
+    --card-foreground: 0 0% 89%;
+    --popover: 240 4% 6%;
+    --popover-foreground: 0 0% 89%;
+    --primary: 0 0% 89%;
+    --primary-foreground: 240 4% 4%;
+    --secondary: 240 3% 12%;
+    --secondary-foreground: 0 0% 89%;
+    --muted: 240 3% 10%;
+    --muted-foreground: 240 4% 58%;
+    --accent: 14 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 15%;
+    --input: 240 4% 15%;
+    --ring: 14 100% 50%;
+    --blade: 210 4% 65%;
+    --radius: 0.25rem;
+    --font-display: 'Anton', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  .dark {
+    --background: 240 4% 4%;
+    --foreground: 0 0% 89%;
+    --card: 240 4% 6%;
+    --card-foreground: 0 0% 89%;
+    --popover: 240 4% 6%;
+    --popover-foreground: 0 0% 89%;
+    --primary: 0 0% 89%;
+    --primary-foreground: 240 4% 4%;
+    --secondary: 240 3% 12%;
+    --secondary-foreground: 0 0% 89%;
+    --muted: 240 3% 10%;
+    --muted-foreground: 240 4% 58%;
+    --accent: 14 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 15%;
+    --input: 240 4% 15%;
+    --ring: 14 100% 50%;
+    --blade: 210 4% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: hsl(var(--accent));
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2d;
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
+  }
+}
+
+@layer utilities {
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .clip-blade {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), 0 100%);
+  }
+
+  .clip-blade-sm {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), 0 100%);
+  }
+
+  .clip-diag {
+    clip-path: polygon(0 6%, 100% 0, 100% 94%, 0 100%);
+  }
+
+  .clip-notch {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 18% 100%, 0 84%);
+  }
+
+  /* silver light that sweeps across a border like a blade glint */
+  .glint-border {
+    position: relative;
+    isolation: isolate;
+  }
+  .glint-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(
+      100deg,
+      hsl(var(--border)) 20%,
+      hsl(var(--blade) / 0.85) 45%,
+      hsl(0 0% 100% / 0.9) 50%,
+      hsl(var(--blade) / 0.85) 55%,
+      hsl(var(--border)) 80%
+    );
+    background-size: 260% 100%;
+    background-position: 140% 0;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease, background-position 0.9s ease;
+    pointer-events: none;
+  }
+  .glint-border:hover::before {
+    opacity: 1;
+    background-position: -40% 0;
+  }
+
+  .hairline {
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--border)) 15%,
+      hsl(var(--border)) 85%,
+      transparent
+    );
+  }
+
+  .text-blade {
+    color: hsl(var(--blade));
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .marquee-track {
+    animation: marquee 32s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "name": "Appointment",
+  "type": "object",
+  "properties": {
+    "customer_name": {
+      "type": "string",
+      "title": "M\u00fc\u015fteri"
+    },
+    "customer_phone": {
+      "type": "string",
+      "title": "Telefon"
+    },
+    "customer_email": {
+      "type": "string",
+      "title": "E-posta"
+    },
+    "service_name": {
+      "type": "string",
+      "title": "Hizmet"
+    },
+    "service_id": {
+      "type": "string",
+      "title": "Hizmet kayd\u0131"
+    },
+    "barber_name": {
+      "type": "string",
+      "title": "Usta"
+    },
+    "barber_id": {
+      "type": "string",
+      "title": "Usta kayd\u0131"
+    },
+    "date": {
+      "type": "string",
+      "title": "Tarih",
+      "format": "date"
+    },
+    "time": {
+      "type": "string",
+      "title": "Saat"
+    },
+    "price": {
+      "type": "number",
+      "title": "Tutar (\u20ba)"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Not"
+    },
+    "status": {
+      "type": "string",
+      "title": "Durum",
+      "enum": [
+        "pending",
+        "confirmed",
+        "completed",
+        "cancelled"
+      ],
+      "enumColors": [
+        "yellow",
+        "blue",
+        "green",
+        "red"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "customer_name",
+    "customer_phone",
+    "date",
+    "time"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

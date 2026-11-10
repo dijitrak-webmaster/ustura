@@ -1,0 +1,65 @@
+{
+  "name": "Service",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Hizmet ad\u0131"
+    },
+    "description": {
+      "type": "string",
+      "title": "A\u00e7\u0131klama"
+    },
+    "price": {
+      "type": "number",
+      "title": "Fiyat (\u20ba)"
+    },
+    "duration": {
+      "type": "number",
+      "title": "S\u00fcre (dakika)"
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "Kullan\u0131lan aletler"
+    },
+    "slug": {
+      "type": "string",
+      "title": "K\u0131sa ad"
+    },
+    "active": {
+      "type": "boolean",
+      "title": "Aktif",
+      "default": true
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "S\u0131ra"
+    }
+  },
+  "required": [
+    "name",
+    "price",
+    "duration"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

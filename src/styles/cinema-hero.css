@@ -1,0 +1,391 @@
+/* ---------- hero · sarı panel + ustura sahnesi ---------- */
+.cine-hero {
+  box-sizing: border-box;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: 2px solid #16130f;
+  background: #fdd132;
+}
+
+.cine-hero * {
+  box-sizing: border-box;
+}
+
+/* sol panel */
+.cine-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px 30px;
+  background: #fdd132;
+  color: #16130f;
+}
+
+.cine-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed rgba(22, 19, 15, 0.45);
+}
+
+.cine-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.cine-stock {
+  display: inline-flex;
+  align-items: center;
+  background: #16130f;
+  color: #eae7e1;
+  padding: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.3;
+  letter-spacing: 0.12em;
+}
+
+.cine-open {
+  display: inline-flex;
+  align-items: center;
+  background: #ff4a1c;
+  color: #16130f;
+  padding: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1.3;
+  letter-spacing: 0.12em;
+  border: 2px solid #16130f;
+}
+
+.cine-hours {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+.cine-hero .cine-title {
+  margin: 20px 0 14px;
+  font-family: var(--font-body);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #16130f;
+}
+
+.cine-hero .cine-title span {
+  display: block;
+}
+
+.cine-hero .cine-title em {
+  display: inline-block;
+  background: #ff4a1c;
+  padding: 0 6px 2px;
+  font-style: normal;
+}
+
+.cine-copy {
+  margin: 0;
+  max-width: 42ch;
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #16130f;
+}
+
+.cine-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cine-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  background: #ff4a1c;
+  color: #16130f;
+  border: 2px solid #16130f;
+  box-shadow: 4px 4px 0 #16130f;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.cine-btn--ghost {
+  background: #eae7e1;
+}
+
+.cine-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #16130f;
+}
+
+.cine-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 transparent;
+}
+
+.cine-btn:focus-visible {
+  outline: 3px solid #16130f;
+  outline-offset: 2px;
+}
+
+/* sağ sahne */
+.cine-stage {
+  position: relative;
+  min-height: 300px;
+  background: #16130f;
+  overflow: hidden;
+}
+
+.cine-portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+  display: block;
+  filter: grayscale(1) contrast(1.35);
+  animation: cine-zoomout 10s ease-out both;
+}
+
+.cine-seal {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 72px;
+  height: 72px;
+  border: 2px solid #ff4a1c;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  color: #ff4a1c;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+  text-align: center;
+  background: rgba(22, 19, 15, 0.35);
+}
+
+.cine-seal b {
+  font-weight: 500;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+}
+
+.cine-scroll {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #ff4a1c;
+  color: #16130f;
+  border: 2px solid #16130f;
+  padding: 5px 7px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+}
+
+.cine-wordmark {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 42px;
+  color: #ff4a1c;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+}
+
+.cine-wordmark small {
+  display: block;
+  color: #ff4a1c;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  margin-bottom: 8px;
+}
+
+.cine-word-outline,
+.cine-word-solid {
+  display: block;
+  font-size: 52px;
+  font-weight: 700;
+}
+
+.cine-word-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px #ff4a1c;
+}
+
+.cine-word-solid {
+  color: #ff4a1c;
+}
+
+.cine-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.cine-dots i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff4a1c;
+}
+
+@keyframes cine-zoomout {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 640px) {
+  .cine-panel {
+    padding: 28px 30px 34px;
+  }
+
+  .cine-hero .cine-title {
+    font-size: 54px;
+  }
+
+  .cine-copy {
+    font-size: 13px;
+  }
+
+  .cine-stage {
+    min-height: 380px;
+  }
+
+  .cine-word-outline,
+  .cine-word-solid {
+    font-size: 78px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cine-hero {
+    grid-template-columns: minmax(0, 41fr) minmax(0, 59fr);
+    min-height: 82vh;
+  }
+
+  .cine-panel {
+    padding: 34px 40px 38px;
+    justify-content: center;
+  }
+
+  .cine-meta {
+    font-size: 10px;
+  }
+
+  .cine-stock,
+  .cine-open {
+    font-size: 10px;
+    padding: 8px 11px;
+  }
+
+  .cine-hours {
+    font-size: 9px;
+  }
+
+  .cine-hero .cine-title {
+    margin: 26px 0 18px;
+    font-size: 64px;
+    line-height: 0.9;
+  }
+
+  .cine-copy {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .cine-actions {
+    margin-top: 26px;
+  }
+
+  .cine-btn {
+    min-height: 48px;
+    padding: 0 22px;
+    font-size: 11px;
+  }
+
+  .cine-stage {
+    min-height: 100%;
+  }
+
+  .cine-seal {
+    top: 32px;
+    left: 32px;
+    width: 104px;
+    height: 104px;
+    font-size: 8px;
+  }
+
+  .cine-seal b {
+    font-size: 10px;
+  }
+
+  .cine-scroll {
+    top: 32px;
+    right: 32px;
+    font-size: 9px;
+    padding: 6px 9px;
+  }
+
+  .cine-wordmark {
+    left: 32px;
+    right: 32px;
+    bottom: 56px;
+  }
+
+  .cine-wordmark small {
+    font-size: 9px;
+    margin-bottom: 10px;
+  }
+
+  .cine-word-outline,
+  .cine-word-solid {
+    font-size: clamp(88px, 11vw, 168px);
+  }
+
+  .cine-dots i {
+    width: 9px;
+    height: 9px;
+  }
+}

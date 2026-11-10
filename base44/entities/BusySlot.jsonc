@@ -1,0 +1,45 @@
+{
+  "name": "BusySlot",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "title": "Tarih"
+    },
+    "time": {
+      "type": "string",
+      "title": "Saat"
+    },
+    "duration": {
+      "type": "number",
+      "title": "S\u00fcre (dakika)"
+    },
+    "barber_id": {
+      "type": "string",
+      "title": "Usta kayd\u0131"
+    },
+    "appointment_id": {
+      "type": "string",
+      "title": "Randevu kayd\u0131"
+    }
+  },
+  "required": [
+    "date",
+    "time"
+  ],
+  "rls": {
+    "read": {},
+    "create": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

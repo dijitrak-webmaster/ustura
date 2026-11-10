@@ -1,0 +1,64 @@
+{
+  "name": "Barber",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Ad soyad"
+    },
+    "role": {
+      "type": "string",
+      "title": "\u00dcnvan"
+    },
+    "specialty": {
+      "type": "string",
+      "title": "Uzmanl\u0131k"
+    },
+    "bio": {
+      "type": "string",
+      "title": "K\u0131sa tan\u0131t\u0131m"
+    },
+    "years": {
+      "type": "number",
+      "title": "Deneyim (y\u0131l)"
+    },
+    "image": {
+      "type": "string",
+      "title": "Foto\u011fraf"
+    },
+    "slug": {
+      "type": "string",
+      "title": "K\u0131sa ad"
+    },
+    "active": {
+      "type": "boolean",
+      "title": "Aktif",
+      "default": true
+    },
+    "sort_order": {
+      "type": "number",
+      "title": "S\u0131ra"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
